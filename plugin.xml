@@ -1,21 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     id="com.example.myplugin"
     version="1.0.0">
 
     <name>MyPlugin</name>
+    <description>Custom Cordova plugin to open Android settings</description>
+    <license>MIT</license>
 
-    <js-module src="www/myplugin.js" name="MyPlugin">
-        <clobbers target="MyPlugin" />
-    </js-module>
+    <engines>
+        <engine name="cordova" version=">=9.0.0" />
+    </engines>
 
     <platform name="android">
-        <config-file target="AndroidManifest.xml" parent="/*">
-            <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="MyPlugin">
+                <param name="android-package" value="com.example.myplugin.MyPlugin" />
+            </feature>
         </config-file>
+
+        <!-- Java source files -->
         <source-file src="src/android/MyPlugin.java" target-dir="src/com/example/myplugin" />
     </platform>
 
-    <platform name="ios">
-        <source-file src="src/ios/MyPlugin.swift" />
-    </platform>
+    <js-module src="www/MyPlugin.js" name="MyPlugin">
+        <clobbers target="cordova.plugins.myplugin" />
+    </js-module>
+
 </plugin>
