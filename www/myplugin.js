@@ -1,8 +1,12 @@
-var exec = require('cordova/exec');
+var exec = require("cordova/exec");
 
 var MyPlugin = {
-    openSettings: function(successCallback, errorCallback) {
+    openSettings: function (successCallback, errorCallback) {
         exec(successCallback, errorCallback, "MyPlugin", "openSettings", []);
+    },
+
+    openDateTimeSettings: function (successCallback, errorCallback) {
+        exec(successCallback, errorCallback, "MyPlugin", "openDateTimeSettings", []);
     }
 };
 
