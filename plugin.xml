@@ -23,7 +23,7 @@
         <source-file src="src/android/MyPlugin.java" target-dir="src/com/example/myplugin" />
     </platform>
 
-    <js-module src="www/MyPlugin.js" name="MyPlugin">
+    <js-module src="www/myplugin.js" name="MyPlugin">
         <clobbers target="cordova.plugins.myplugin" />
     </js-module>
 
